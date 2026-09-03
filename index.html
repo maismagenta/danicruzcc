@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danielle Cruz — Design Leadership</title>
+<meta name="description" content="Danielle Cruz — design leader with fifteen years building disciplines, teams, and product experiences at scale, from editorial media to one of Latin America's largest fintechs.">
+<link rel="canonical" href="https://danicruz.cc/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://danicruz.cc/">
+<meta property="og:title" content="Danielle Cruz — Design Leadership">
+<meta property="og:description" content="Fifteen years building disciplines, teams, and product experiences at scale — from editorial media to one of Latin America's largest fintechs.">
+<meta property="og:image" content="https://danicruz.cc/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Danielle Cruz — Design Leadership">
+<meta name="twitter:description" content="Fifteen years building disciplines, teams, and product experiences at scale.">
+<meta name="twitter:image" content="https://danicruz.cc/assets/img/og-image.png">
+<meta name="theme-color" content="#2D1B3D">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #2D1B3D;
+    --deep-2: #241430;
+    --berry: #9B2D7C;
+    --berry-bright: #C13D9A;
+    --berry-bright-a11y: #DD73B8; /* AA-compliant (5.4:1) for body-size text on --deep */
+    --off: #F5F2F0;
+    --off-warm: #EFE9E6;
+    --ink: #1A1A1A;
+    --gray: #6B6470;
+    --line: #D9D2D7;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Outfit', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--off);
+    color: var(--ink);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--berry); color: var(--off); }
+  /* grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 2.5rem;
+    mix-blend-mode: difference;
+    transition: padding 0.4s ease;
+  }
+  nav .logo {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  nav .links { display: flex; gap: 2rem; }
+  nav .links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+  }
+  nav .links a:hover { opacity: 1; }
+  .lang-switch { display: flex; gap: 0.1rem; align-items: center; margin-left: 1.5rem; }
+  .lang-switch button {
+    background: none; border: none; cursor: pointer;
+    color: #fff; font-family: var(--sans); font-size: 0.75rem;
+    letter-spacing: 0.1em; font-weight: 600;
+    width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    opacity: 0.5; transition: opacity 0.25s; text-transform: uppercase;
+  }
+  .lang-switch button:hover { opacity: 0.85; }
+  .lang-switch button.active { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+  .lang-switch .sep { color: #fff; opacity: 0.3; font-size: 0.7rem; }
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center;
+    background: transparent; border: none; cursor: pointer;
+    padding: 0; margin-left: 0.5rem;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+    content: ""; display: block;
+    width: 20px; height: 2px; background: #fff;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle span { position: relative; }
+  .nav-toggle span::before { position: absolute; top: -6px; left: 0; }
+  .nav-toggle span::after { position: absolute; top: 6px; left: 0; }
+  .nav-toggle[aria-expanded="true"] span { background: transparent; }
+  .nav-toggle[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
+  @media (max-width: 720px) {
+    nav { padding: 1rem 1.3rem; mix-blend-mode: normal; background: rgba(45,27,61,0.0); }
+    nav.scrolled { background: rgba(45,27,61,0.92); backdrop-filter: blur(8px); }
+    nav.menu-open { background: rgba(45,27,61,0.98); }
+    nav .logo { color: #fff; }
+    .nav-toggle { display: flex; }
+    nav .links {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(78vw, 320px);
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.6rem;
+      padding: 6rem 2.2rem 2.2rem;
+      background: var(--deep);
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+    nav .links.open { transform: translateX(0); }
+    nav .links a { font-size: 1.3rem; opacity: 1; }
+    .lang-switch { margin-left: 0; }
+  }
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--deep);
+    color: var(--off);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 60vw; height: 60vw;
+    max-width: 700px; max-height: 700px;
+    right: -10vw; top: -10vw;
+    background: radial-gradient(circle, rgba(193,61,154,0.28) 0%, rgba(193,61,154,0) 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+  .hero .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--berry-bright-a11y);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.2s forwards;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 340;
+    font-style: italic;
+    font-size: clamp(3.5rem, 11vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.3rem;
+  }
+  .hero h1 .l1 { display: block; opacity: 0; animation: fadeUp 1s ease 0.35s forwards; }
+  .hero h1 .l2 {
+    display: block;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--berry-bright);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero .tagline {
+    font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+    color: var(--off);
+    opacity: 0;
+    max-width: 600px;
+    margin-top: 2rem;
+    font-weight: 300;
+    line-height: 1.5;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero .tagline em { font-family: var(--serif); font-style: italic; color: var(--berry-bright-a11y); }
+  .hero .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--off);
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards, bob 2s ease-in-out 2s infinite;
+    z-index: 2;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+  /* ===== SECTION SHELL ===== */
+  section { padding: 7rem 2.5rem; position: relative; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  .sec-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--berry);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+  .sec-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 360;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--deep);
+    margin-bottom: 2rem;
+  }
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  /* ===== INTRO ===== */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .intro-lead {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.4;
+    font-weight: 340;
+    color: var(--deep);
+  }
+  .intro-lead em { font-style: italic; color: var(--berry); }
+  .intro-body { font-size: 1.05rem; line-height: 1.7; color: var(--gray); margin-top: 1.5rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag {
+    border: 1px solid var(--deep);
+    border-radius: 100px;
+    padding: 0.4rem 0.95rem;
+    font-size: 0.8rem;
+    color: var(--deep);
+    letter-spacing: 0.02em;
+    transition: background 0.3s, color 0.3s;
+  }
+  .tag:hover { background: var(--deep); color: var(--off); }
+  @media (max-width: 820px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+  /* ===== TIMELINE ===== */
+  .timeline-sec { background: var(--off-warm); }
+  .tl {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+  .tl::before {
+    content: "";
+    position: absolute;
+    top: 7px; left: 2%; right: 2%;
+    height: 1.5px;
+    background: var(--line);
+  }
+  .tl-item { position: relative; padding-top: 2rem; text-align: left; }
+  .tl-item .dot {
+    position: absolute;
+    top: 0; left: 0;
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--deep);
+    transform: scale(0);
+    transition: transform 0.5s cubic-bezier(.5,1.6,.4,1);
+  }
+  .tl.in .tl-item .dot { transform: scale(1); }
+  .tl-item:last-child .dot { background: var(--berry); box-shadow: 0 0 0 5px rgba(155,45,124,0.18); }
+  .tl-item .yr { font-size: 0.8rem; font-weight: 700; color: var(--deep); letter-spacing: 0.05em; }
+  .tl-item:last-child .yr { color: var(--berry); }
+  .tl-item .role { font-size: 0.95rem; font-weight: 600; margin-top: 0.4rem; line-height: 1.2; }
+  .tl-item .place { font-size: 0.8rem; color: var(--gray); font-style: italic; margin-top: 0.2rem; }
+  .tl-item .dot { transition-delay: calc(var(--i) * 0.08s); }
+  @media (max-width: 820px) {
+    .tl { grid-template-columns: 1fr; gap: 0; }
+    .tl::before { left: 7px; right: auto; top: 0; bottom: 0; width: 1.5px; height: auto; }
+    .tl-item { padding-top: 0; padding-left: 2rem; padding-bottom: 1.8rem; }
+    .tl-item .dot { top: 4px; }
+  }
+  /* ===== CASES ===== */
+  .case {
+    border-top: 1px solid var(--line);
+    padding: 4.5rem 0;
+    display: grid;
+    grid-template-columns: 0.8fr 2fr;
+    gap: 3rem;
+  }
+  .case:first-of-type { border-top: none; }
+  .case > div { min-width: 0; }
+  .case-meta .cn {
+    font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--berry); font-weight: 600;
+  }
+  .case-meta .corg { font-size: 0.95rem; color: var(--gray); margin-top: 0.8rem; font-style: italic; }
+  .case h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 360;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+  }
+  .case h3 strong { font-weight: 600; font-style: normal; }
+  .case p.lead { font-size: 1.08rem; line-height: 1.65; color: var(--ink); margin-bottom: 1.5rem; max-width: 640px; }
+  .case .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; }
+  .case .col-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--berry); font-weight: 600; margin-bottom: 0.6rem; }
+  .case .col-body { font-size: 0.98rem; line-height: 1.6; color: var(--ink); }
+  /* big stats */
+  .stats { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2.5rem; }
+  .stat .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1;
+    color: var(--berry);
+    letter-spacing: -0.02em;
+  }
+  .stat .sl { font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem; max-width: 180px; border-top: 1.5px solid var(--deep); padding-top: 0.5rem; }
+  .arrow-stat { display: flex; align-items: baseline; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .arrow-stat .from { font-family: var(--serif); font-style: italic; font-size: clamp(2rem,4vw,3rem); color: var(--deep); }
+  .arrow-stat .arr { color: var(--berry); font-size: 1.5rem; }
+  .arrow-stat .to { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: clamp(3rem,6vw,4.5rem); color: var(--berry); }
+  .arrow-stat .ctx { font-size: 0.9rem; color: var(--gray); width: 100%; font-style: italic; }
+  .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .phase .pn { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--berry); }
+  .phase .pyr { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gray); font-weight: 600; margin: 0.5rem 0 0.3rem; }
+  .phase .pt { font-size: 1rem; font-weight: 600; color: var(--deep); margin-bottom: 0.5rem; }
+  .phase .pd { font-size: 0.88rem; line-height: 1.5; color: var(--gray); }
+  @media (max-width: 820px) {
+    .case { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 0; }
+    .case .two-col { grid-template-columns: 1fr; gap: 1.5rem; }
+    .phases { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  }
+  /* ===== TEACHING ===== */
+  .teach-sec { background: var(--deep); color: var(--off); }
+  .teach-sec .sec-title { color: var(--off); }
+  .teach-sec .sec-label { color: var(--berry-bright-a11y); }
+  .teach-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; margin-top: 3rem; }
+  .teach .tn { font-family: var(--serif); font-style: italic; font-size: clamp(2.8rem,5vw,4rem); color: var(--berry-bright); line-height: 1; }
+  .teach .tt { font-weight: 600; font-size: 1rem; margin: 0.6rem 0; }
+  .teach .td { font-size: 0.92rem; line-height: 1.55; color: rgba(245,242,240,0.7); }
+  @media (max-width: 820px) { .teach-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  /* ===== PRINCIPLES ===== */
+  .principles { margin-top: 2rem; }
+  .principle { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding: 2.2rem 0; border-bottom: 1px solid var(--line); }
+  .principle:last-child { border-bottom: none; }
+  .principle .pnum { font-family: var(--serif); font-style: italic; font-size: 3rem; color: var(--berry); line-height: 0.9; }
+  .principle .ph { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: clamp(1.3rem,2.6vw,1.8rem); color: var(--deep); margin-bottom: 0.6rem; }
+  .principle .pp { font-size: 1.02rem; line-height: 1.6; color: var(--ink); max-width: 720px; }
+  @media (max-width: 820px) { .principle { grid-template-columns: 50px 1fr; gap: 1rem; } }
+  /* ===== PREVIOUS WORK — EDITORIAL CARDS (no photos, magazine-style) ===== */
+  .prev-sec { padding: 7rem 0 5rem 0; }
+  .prev-sec .wrap { padding: 0 2.5rem; max-width: 1200px; margin: 0 auto; }
+  .prev-sec .sec-meta { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+  .prev-sec .scroll-cue { font-size: 0.78rem; letter-spacing: 0.25em; color: var(--gray); text-transform: uppercase; }
+  .prev-sec .scroll-cue span { display: inline-block; transition: transform 0.6s; }
+  .prev-sec:hover .scroll-cue span { transform: translateX(8px); }
+  .carousel {
+    display: flex;
+    align-items: stretch;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 2.5rem 2rem 2.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--berry) var(--off-warm);
+  }
+  .carousel::-webkit-scrollbar { height: 5px; }
+  .carousel::-webkit-scrollbar-track { background: var(--off-warm); }
+  .carousel::-webkit-scrollbar-thumb { background: var(--berry); border-radius: 100px; }
+  .ecard {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.6rem;
+    border-radius: 14px;
+    padding: 1.9rem 1.7rem;
+    transition: transform 0.4s;
+  }
+  .ecard:hover { transform: translateY(-6px); }
+  .ecard.wide { flex-basis: 340px; }
+  .ecard .eyear {
+    font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.25em;
+    text-transform: uppercase; font-weight: 600; opacity: 0.75;
+  }
+  .ecard .etitle {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    line-height: 1.08;
+  }
+  .ecard.wide .etitle { font-size: 2.1rem; }
+  .ecard:not(.wide) .etitle { font-size: 1.6rem; }
+  .ecard .edesc { font-size: 0.92rem; line-height: 1.55; }
+  /* tone variants */
+  .ecard.tone-deep { background: var(--deep); color: var(--off); }
+  .ecard.tone-deep .eyear { color: var(--berry-bright-a11y); }
+  .ecard.tone-deep .edesc { color: rgba(245,242,240,0.75); }
+  .ecard.tone-berry { background: var(--berry); color: var(--off); }
+  .ecard.tone-berry .eyear { color: var(--off); }
+  .ecard.tone-berry .edesc { color: rgba(245,242,240,0.85); }
+  .ecard.tone-paper { background: var(--off-warm); color: var(--ink); border: 1px solid var(--line); }
+  .ecard.tone-paper .eyear { color: var(--berry); }
+  .ecard.tone-paper .etitle { color: var(--deep); }
+  .ecard.tone-paper .edesc { color: var(--gray); }
+  .prev-also {
+    margin: 3rem 2.5rem 0;
+    max-width: 1200px;
+    padding: 1.8rem 0 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .prev-also strong { color: var(--deep); font-weight: 600; letter-spacing: 0.05em; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+  @media (max-width: 720px) {
+    .ecard { flex: 0 0 260px; padding: 1.6rem 1.4rem; }
+    .ecard.wide { flex-basis: 280px; }
+    .carousel { padding: 0 1.3rem 2rem 1.3rem; }
+    .prev-sec .wrap { padding: 0 1.3rem; }
+    .prev-also { margin: 2rem 1.3rem 0; }
+  }
+  /* ===== CASE IMAGE (real) ===== */
+  .case-img-wrap { margin: 1.8rem 0; }
+  .case-img-wrap img {
+    width: 100%;
+    display: block;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+  }
+  .case-img-wrap .cap {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+  /* ===== PHONE MOCKUP (reusable, auto-rotating screens) ===== */
+  .phone-showcase { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; margin: 1.8rem 0; }
+  .phone-mock {
+    position: relative;
+    width: 260px;
+    aspect-ratio: 9/19.5;
+    background: var(--ink);
+    border-radius: 34px;
+    padding: 10px;
+    box-shadow: 0 20px 40px rgba(26,26,26,0.22);
+    flex: none;
+  }
+  .phone-screen {
+    position: relative;
+    width: 100%; height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--off);
+  }
+  .phone-screen img {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .phone-screen img.active { opacity: 1; }
+  .phone-island {
+    position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+    width: 70px; height: 18px; border-radius: 10px;
+    background: var(--ink); z-index: 2;
+  }
+  .phone-dots { display: flex; gap: 0.5rem; align-items: center; }
+  .phone-dots button {
+    width: 44px; height: 44px; padding: 0; margin: -14px;
+    background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .phone-dots button span {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--line); transition: background 0.25s, transform 0.25s;
+    display: block;
+  }
+  .phone-dots button[aria-current="true"] span { background: var(--berry); transform: scale(1.3); }
+  .phone-caption { font-size: 0.78rem; color: var(--gray); font-style: italic; }
+  /* ===== IMAGE PLACEHOLDER ===== */
+  .img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--deep), var(--berry));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.6rem;
+    margin: 1.8rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-placeholder .mock-card {
+    width: 100%;
+    max-width: 260px;
+    background: var(--off);
+    border-radius: 10px;
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  }
+  .img-placeholder .mock-row { display: flex; justify-content: space-between; align-items: center; }
+  .img-placeholder .mock-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--berry); }
+  .img-placeholder .mock-title { font-family: var(--sans); font-weight: 600; font-size: 0.72rem; color: var(--ink); }
+  .img-placeholder .mock-bar { height: 26px; border-radius: 6px; background: var(--off-warm); }
+  .img-placeholder .mock-bar.tall { height: 30px; }
+  .img-placeholder .mock-cols { display: flex; gap: 0.5rem; }
+  .img-placeholder .mock-cols .mock-bar { flex: 1; }
+  .img-placeholder .mock-cta { height: 28px; border-radius: 6px; background: var(--deep); margin-top: 0.2rem; }
+  .img-placeholder .ph-note {
+    position: absolute;
+    bottom: 0.7rem; right: 0.9rem;
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(245,242,240,0.65);
+  }
+  /* ===== SOON NOTE ===== */
+  .soon-note {
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gray);
+    padding: 2.5rem 2rem;
+    background: var(--off-warm);
+  }
+  /* ===== CONTACT ===== */
+  .contact {
+    background: var(--deep);
+    color: var(--off);
+    text-align: left;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact::after {
+    content: "";
+    position: absolute;
+    width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
+    left: -10vw; bottom: -15vw;
+    background: radial-gradient(circle, rgba(193,61,154,0.25) 0%, rgba(193,61,154,0) 70%);
+    border-radius: 50%;
+  }
+  .contact .big {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    line-height: 0.9;
+    position: relative; z-index: 2;
+  }
+  .contact .big strong { font-weight: 600; font-style: normal; color: var(--berry-bright); display: block; }
+  .contact .links { margin-top: 2.5rem; position: relative; z-index: 2; }
+  .contact .links a {
+    display: inline-block;
+    color: var(--off);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-right: 2rem;
+    border-bottom: 1px solid var(--berry-bright);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+  .contact .links a:hover { color: var(--berry-bright-a11y); }
+  .footer-note { margin-top: 3rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,242,240,0.4); position: relative; z-index: 2; }
+  /* ===== REDUCED MOTION ===== */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .hero .eyebrow, .hero h1 .l1, .hero h1 .l2, .hero .tagline, .hero .scroll-hint,
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Danielle Cruz</div>
+  <div style="display:flex;align-items:center;">
+    <div class="links" id="nav-links">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#previous" data-i18n="nav_prev">Previous</a>
+      <a href="#teaching" data-i18n="nav_teaching">Teaching</a>
+      <a href="#leadership" data-i18n="nav_leadership">Leadership</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div class="lang-switch">
+      <button data-lang="en" class="active">EN</button>
+      <span class="sep">·</span>
+      <button data-lang="pt">PT</button>
+      <span class="sep">·</span>
+      <button data-lang="es">ES</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span></span>
+    </button>
+  </div>
+</nav>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow" data-i18n="hero_eyebrow">Design Leadership · Content Strategy</div>
+    <h1>
+      <span class="l1">Danielle</span>
+      <span class="l2">Cruz.</span>
+    </h1>
+    <p class="tagline" data-i18n="hero_tagline">Fifteen years building <em>disciplines, teams, and product experiences</em> at scale — from editorial media to one of Latin America's largest fintechs.</p>
+  </div>
+  <div class="scroll-hint" data-i18n="hero_scroll">Scroll ↓</div>
+</header>
+<!-- INTRO -->
+<section id="about">
+  <div class="wrap intro-grid">
+    <div class="reveal">
+      <div class="sec-label" data-i18n="about_label">Who I am</div>
+      <p class="intro-lead" data-i18n="about_lead">I'm a design leader who came up through <em>content</em> — graphic design, content strategy, then product design leadership.</p>
+      <p class="intro-body" data-i18n="about_body">Today I lead 10 designers at Mercado Pago, one of Latin America's largest fintechs. I care about strategy backed by data, AI-augmented workflows, and developing the people I work with. I've built disciplines from scratch and I'm just as comfortable defining content strategy as I am leading a design org.</p>
+    </div>
+    <div class="reveal">
+      <div class="sec-label" data-i18n="about_what">What I do</div>
+      <div class="tags">
+        <span class="tag" data-i18n="tag_1">Design leadership</span>
+        <span class="tag" data-i18n="tag_2">Content strategy</span>
+        <span class="tag" data-i18n="tag_3">Team building</span>
+        <span class="tag" data-i18n="tag_4">AI-augmented workflows</span>
+        <span class="tag" data-i18n="tag_5">People development</span>
+        <span class="tag" data-i18n="tag_6">UX writing</span>
+        <span class="tag" data-i18n="tag_7">Data-backed prioritization</span>
+        <span class="tag" data-i18n="tag_8">Voice &amp; tone</span>
+        <span class="tag" data-i18n="tag_9">Stakeholder management</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TIMELINE -->
+<section class="timeline-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label" data-i18n="tl_label">Trajectory</div>
+      <h2 class="sec-title" data-i18n="tl_title">From graphic design<br>to design leadership.</h2>
+    </div>
+    <div class="tl">
+      <div class="tl-item" style="--i:0"><span class="dot"></span><div class="yr">2008</div><div class="role" data-i18n="tl_r1">Graphic Design</div><div class="place" data-i18n="tl_p1">SENAC — BA</div></div>
+      <div class="tl-item" style="--i:1"><span class="dot"></span><div class="yr">2010–19</div><div class="role" data-i18n="tl_r2">360 Content Strategy</div><div class="place" data-i18n="tl_p2">Editorial media &amp; advertising</div></div>
+      <div class="tl-item" style="--i:2"><span class="dot"></span><div class="yr">2019–20</div><div class="role" data-i18n="tl_r3">UX Writing</div><div class="place">Itaú, Fleury</div></div>
+      <div class="tl-item" style="--i:3"><span class="dot"></span><div class="yr">2021–22</div><div class="role" data-i18n="tl_r4">Senior UX Writer</div><div class="place">RaiaDrogasil</div></div>
+      <div class="tl-item" style="--i:4"><span class="dot"></span><div class="yr">2022–24</div><div class="role" data-i18n="tl_r5">Content Design Lead</div><div class="place" data-i18n="tl_p5">RD — team of 4</div></div>
+      <div class="tl-item" style="--i:5"><span class="dot"></span><div class="yr">2024 →</div><div class="role" data-i18n="tl_r6">UX Design Lead</div><div class="place" data-i18n="tl_p6">Mercado Pago — 10</div></div>
+    </div>
+  </div>
+</section>
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label" data-i18n="work_label">Selected work</div>
+      <h2 class="sec-title" data-i18n="work_title">Four cases.</h2>
+    </div>
+    <!-- CASE 1 -->
+    <div class="case reveal">
+      <div class="case-meta">
+        <div class="cn">Case 01</div>
+        <div class="corg" data-i18n="c1_org">RaiaDrogasil · 2021–2024<br>Senior UX Writer → Content Design Lead</div>
+      </div>
+      <div>
+        <h3 data-i18n="c1_title">Building Content Design <strong>from the ground up.</strong></h3>
+        <div class="two-col">
+          <div>
+            <div class="col-label" data-i18n="c1_sit_label">The situation</div>
+            <div class="col-body" data-i18n="c1_sit_body">One Content Designer (me). Fifty Product Designers. No content strategy, no guidelines, no shared vocabulary. Content was an afterthought in the delivery flow.</div>
+          </div>
+          <div>
+            <div class="col-label" data-i18n="c1_out_label">The outcome</div>
+            <div class="col-body" data-i18n="c1_out_body">A recognized Content Design discipline with its own systems, processes, and a team of four — with prioritization tied to business metrics.</div>
+          </div>
+        </div>
+        <div class="phases">
+          <div class="phase"><div class="pn">01</div><div class="pyr">2021</div><div class="pt" data-i18n="c1_ph1_t">Mapping &amp; Culture</div><div class="pd" data-i18n="c1_ph1_d">Benchmarked the market, mapped needs, built the writing guide, checklist, workshops and a Content Guild.</div></div>
+          <div class="phase"><div class="pn">02</div><div class="pyr">2022</div><div class="pt" data-i18n="c1_ph2_t">Pilot</div><div class="pd" data-i18n="c1_ph2_d">Defined the operating model — scopes, processes, allocation logic, people foundations.</div></div>
+          <div class="phase"><div class="pn">03</div><div class="pyr">2023</div><div class="pt" data-i18n="c1_ph3_t">Refinement</div><div class="pd" data-i18n="c1_ph3_d">Grew the team's depth, connected across squads, refined processes from real friction.</div></div>
+          <div class="phase"><div class="pn">04</div><div class="pyr">2024</div><div class="pt" data-i18n="c1_ph4_t">Strategy</div><div class="pd" data-i18n="c1_ph4_d">Moved into quarter-level prioritization, focusing energy on the highest-impact initiatives.</div></div>
+        </div>
+        <div class="stats" data-stats>
+          <div class="stat"><div class="num" data-count="181">0</div><div class="sl" data-i18n="c1_s1">upstream initiatives mapped</div></div>
+          <div class="stat"><div class="num" data-count="51">0</div><div class="sl" data-i18n="c1_s2">with Content involvement negotiated</div></div>
+          <div class="stat"><div class="num" data-count="41">0</div><div class="sl" data-i18n="c1_s3">high-impact opportunities surfaced</div></div>
+        </div>
+        <p class="col-body" style="margin-top:1.8rem;font-style:italic;color:var(--gray)" data-i18n="c1_note">A snapshot from a previous quarter — plus a Content Design System, writing guide, checklist, individual-development framework and team-skills map, all created from scratch.</p>
+      </div>
+    </div>
+    <!-- CASE 2 -->
+    <div class="case reveal">
+      <div class="case-meta">
+        <div class="cn">Case 02</div>
+        <div class="corg" data-i18n="c2_org">Mercado Pago · 2024–Present<br>UX Design Lead, team of 10</div>
+      </div>
+      <div>
+        <h3 data-i18n="c2_title">Leading design <strong>in practice.</strong></h3>
+        <div class="phone-showcase">
+          <div class="phone-mock">
+            <div class="phone-screen">
+              <img class="phone-slide active" src="assets/img/case2-mercadopago-home.webp" width="738" height="1794" loading="lazy" decoding="async" alt="Mercado Pago home screen — after the redesign, showing balance, credit card and loans modules">
+              <div class="phone-island"></div>
+            </div>
+          </div>
+          <span class="phone-caption" data-i18n="c2_img_caption">Mercado Pago Home — after the redesign</span>
+        </div>
+        <p class="lead" data-i18n="c2_lead">Leading a team of 10 designers across UX, UI and Content at one of Latin America's largest fintechs — from a transversal role spanning the whole product, not a single squad — through big, visible projects and a shift in how the team works.</p>
+        <div class="two-col" style="gap:1.3rem 2rem">
+          <div><div class="col-label" data-i18n="c2_b1_l">Home redesign</div><div class="col-body" data-i18n="c2_b1_d">Led the complete redesign of the Home experience — one of the product's most visible, high-stakes surfaces.</div></div>
+          <div><div class="col-label" data-i18n="c2_b4_l">Dark mode</div><div class="col-body" data-i18n="c2_b4_d">Instituted dark mode across the product, from design tokens through rollout.</div></div>
+          <div><div class="col-label" data-i18n="c2_b5_l">Automated approvals</div><div class="col-body" data-i18n="c2_b5_d">Built automated approval flows for pending requests, replacing manual sign-off with a faster, auditable process.</div></div>
+          <div><div class="col-label" data-i18n="c2_b6_l">Content rituals</div><div class="col-body" data-i18n="c2_b6_d">Created recurring content rituals for the team — critique, calibration and knowledge-sharing built into the workflow.</div></div>
+          <div><div class="col-label" data-i18n="c2_b7_l">Roadmap &amp; capacity</div><div class="col-body" data-i18n="c2_b7_d">Restructured roadmap planning and task assignment, cutting team overload intelligently and freeing up a meaningful buffer of designer capacity for the extra miles that always come up in this kind of product.</div></div>
+          <div><div class="col-label" data-i18n="c2_b3_l">AI in practice</div><div class="col-body" data-i18n="c2_b3_d">Drove the adoption of AI into the team's processes and deliverables — working hands-on with Claude, Cursor, and other tools.</div></div>
+        </div>
+        <p class="col-body" style="margin-top:1.5rem;font-style:italic;color:var(--gray)" data-i18n="c2_note">Full case study in development — happy to walk you through it live.</p>
+      </div>
+    </div>
+    <!-- CASE 3 -->
+    <div class="case reveal">
+      <div class="case-meta">
+        <div class="cn">Case 03</div>
+        <div class="corg" data-i18n="c3_org">Itaú · 2020–2021<br>UX Writer · Onboarding redesign</div>
+      </div>
+      <div>
+        <h3 data-i18n="c3_title">Making consortium <strong>make sense.</strong></h3>
+        <div class="phone-showcase">
+          <div class="phone-mock">
+            <div class="phone-screen" id="c3-phone-screen">
+              <img class="phone-slide active" src="assets/img/case3-onboarding-1.webp" width="1097" height="2323" loading="lazy" decoding="async" alt="Redesigned onboarding, screen 1 of 3 — Lia, quer planejar uma conquista?">
+              <img class="phone-slide" src="assets/img/case3-onboarding-2.webp" width="327" height="700" loading="lazy" decoding="async" alt="Redesigned onboarding, screen 2 of 3 — Em grupo, fica mais acessível">
+              <img class="phone-slide" src="assets/img/case3-onboarding-3.webp" width="330" height="700" loading="lazy" decoding="async" alt="Redesigned onboarding, screen 3 of 3 — Duas formas de ser contemplada">
+            </div>
+            <div class="phone-island"></div>
+          </div>
+          <div class="phone-dots" id="c3-phone-dots" role="tablist" aria-label="Onboarding screens">
+            <button type="button" role="tab" aria-current="true" aria-label="Screen 1 of 3"><span></span></button>
+            <button type="button" role="tab" aria-current="false" aria-label="Screen 2 of 3"><span></span></button>
+            <button type="button" role="tab" aria-current="false" aria-label="Screen 3 of 3"><span></span></button>
+          </div>
+          <div class="phone-caption">The redesigned onboarding, cycling through its 3 screens</div>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="col-label" data-i18n="c3_ch_l">The challenge</div>
+            <div class="col-body" data-i18n="c3_ch_d">Consortium is a complex financial product in Brazil — easy to misunderstand. The onboarding was packed with jargon that didn't belong in a first contact.</div>
+          </div>
+          <div>
+            <div class="col-label" data-i18n="c3_ap_l">The approach</div>
+            <div class="col-body" data-i18n="c3_ap_d">Listened to customer-service calls. Ran semantic research. Aligned with marketing and sales. Co-designed with the squad. Rewrote content to lead with benefit, not mechanics.</div>
+          </div>
+        </div>
+        <div class="arrow-stat" data-arrow>
+          <span class="from" data-i18n-html="c3_from">From <span data-count="25">0</span>%</span>
+          <span class="arr">→</span>
+          <span class="to"><span data-count="90">0</span>%</span>
+          <span class="ctx" data-i18n="c3_ctx">user comprehension in testing — same product, redesigned content.</span>
+        </div>
+      </div>
+    </div>
+    <!-- CASE 4 anchor handled in teaching -->
+  </div>
+</section>
+<!-- TEACHING -->
+<section id="teaching" class="teach-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label" data-i18n="teach_label">Case 04 · Beyond the team</div>
+      <h2 class="sec-title" data-i18n="teach_title">Teaching the craft.</h2>
+    </div>
+    <div class="teach-grid">
+      <div class="teach reveal"><div class="tn" data-count="200" data-suffix="+">0</div><div class="tt" data-i18n="teach_t1">designers trained</div><div class="td" data-i18n="teach_d1">Through the "Figma for Writers" workshop, bridging writing and product UI for designers across the market.</div></div>
+      <div class="teach reveal"><div class="tn" data-count="3">0</div><div class="tt" data-i18n="teach_t2">courses in development</div><div class="td" data-i18n="teach_d2">Building new courses, including "From Brief to Screen — UI with AI for Writers," aimed at writers being asked to deliver UI screens.</div></div>
+      <div class="teach reveal"><div class="tn" data-count="10" data-suffix="+">0</div><div class="tt" data-i18n="teach_t3">talks delivered</div><div class="td" data-i18n="teach_d3">Long-standing speaker on UX writing, content ops, creativity and design leadership — and an in-company instructor for career transition.</div></div>
+    </div>
+  </div>
+</section>
+<!-- PRINCIPLES -->
+<section id="leadership">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-label" data-i18n="lead_label">On leadership</div>
+      <h2 class="sec-title" data-i18n="lead_title">How I lead.</h2>
+    </div>
+    <div class="principles">
+      <div class="principle reveal">
+        <div class="pnum">I.</div>
+        <div>
+          <div class="ph" data-i18n="p1_h">Strategy backed by data</div>
+          <div class="pp" data-i18n="p1_p">Opinion is a starting point, not a destination. I prioritize by business impact — mapped, measured, negotiated. The work I'm proudest of is the work I can defend with numbers.</div>
+        </div>
+      </div>
+      <div class="principle reveal">
+        <div class="pnum">II.</div>
+        <div>
+          <div class="ph" data-i18n="p2_h">People grow disciplines, not the other way around</div>
+          <div class="pp" data-i18n="p2_p">Disciplines scale because individual designers grow into them. I invest in individual development — building career paths, mentoring towards autonomy, and creating the tools and space for people to own their growth.</div>
+        </div>
+      </div>
+      <div class="principle reveal">
+        <div class="pnum">III.</div>
+        <div>
+          <div class="ph" data-i18n="p3_h">Tools are leverage, including AI</div>
+          <div class="pp" data-i18n="p3_p">I bring AI into team workflows when it removes friction, not when it removes craft. The same principle applies to processes, systems and rituals: keep what serves the work, prune what doesn't.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PREVIOUS WORK CAROUSEL -->
+<section id="previous" class="prev-sec">
+  <div class="wrap">
+    <div class="sec-meta">
+      <div class="reveal">
+        <div class="sec-label" data-i18n="prev_label">Before all this</div>
+        <h2 class="sec-title" data-i18n="prev_title">Fifteen years in <em>design, editorial &amp; brands.</em></h2>
+        <p style="font-size:1.05rem;line-height:1.6;color:var(--gray);max-width:600px;margin-top:1rem" data-i18n="prev_intro">From 2005 to 2019 — five years as a branding and editorial designer, then a decade in content and digital strategy for editorial media and advertising: magazines, music festivals, and social media for global brands.</p>
+      </div>
+      <div class="scroll-cue" data-i18n="prev_scroll">Scroll <span>→</span></div>
+    </div>
+  </div>
+  <div class="carousel">
+    <div class="ecard wide tone-deep reveal">
+      <div class="etitle" data-i18n="prev_7_t">Where it started: design &amp; print.</div>
+      <div class="edesc" data-i18n="prev_7_d">Before content strategy, five years as a branding and editorial designer — building identities and laying out magazine pages, issue after issue.</div>
+    </div>
+    <div class="ecard tone-paper reveal">
+      <div class="etitle" data-i18n="prev_4_t">Outro Estilo</div>
+      <div class="edesc" data-i18n="prev_4_d">Editorial design and production for São Paulo's alt-culture magazine — cover to back page, issue after issue.</div>
+    </div>
+    <div class="ecard tone-berry reveal">
+      <div class="etitle" data-i18n="prev_6_t">Nova &amp; Cosmopolitan</div>
+      <div class="edesc" data-i18n="prev_6_d">Editorial design at Editora Abril, across two of Brazil's biggest women's magazines.</div>
+    </div>
+    <div class="ecard wide tone-paper reveal">
+      <div class="etitle" data-i18n="prev_1_t">Lollapalooza Brasil &amp; Chile</div>
+      <div class="edesc" data-i18n="prev_1_d">Content strategy and live coverage from the photo pit — turning a chaotic four-day festival into a daily narrative for tens of thousands of followers, across both countries.</div>
+    </div>
+    <div class="ecard tone-deep reveal">
+      <div class="etitle" data-i18n="prev_5_t">SKY · Rock in Rio</div>
+      <div class="edesc" data-i18n="prev_5_d">Brand voice and real-time coverage for SKY Brasil's Twitter during Rock in Rio — translating broadcast moments into shareable social content.</div>
+    </div>
+    <div class="ecard tone-paper reveal">
+      <div class="etitle" data-i18n="prev_3_t">History Channel · A&amp;E Brasil</div>
+      <div class="edesc" data-i18n="prev_3_d">Content strategy and microcopy across the channel's digital ecosystem — YouTube, social and editorial.</div>
+    </div>
+    <div class="ecard tone-berry reveal">
+      <div class="etitle" data-i18n="prev_2_t">Philips Avent · Instagram</div>
+      <div class="edesc" data-i18n="prev_2_d">Content strategy, copywriting and editorial direction for the brand's Instagram presence in Brazil.</div>
+    </div>
+  </div>
+  <div class="prev-also reveal">
+    <strong data-i18n="prev_also_label">Also</strong>
+    <span data-i18n="prev_also">Worked with brands and agencies including MTV Brasil, DM9DDB, Wunderman, Kérastase, Land Rover, China in Box, Natura, and Optimum Nutrition.</span>
+  </div>
+</section>
+<!-- MORE COMING SOON -->
+<div class="soon-note reveal" data-i18n="soon_note">New work drops here often. Stay tuned.</div>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="big reveal" data-i18n-html="contact_big">Let's<strong>talk.</strong></div>
+    <div class="links reveal">
+      <a href="mailto:hello@danicruz.cc">hello@danicruz.cc</a>
+      <a href="https://linkedin.com/in/daniellecruz" target="_blank" rel="noopener">linkedin.com/in/daniellecruz</a>
+    </div>
+    <div class="footer-note" data-i18n="footer">Danielle Cruz · Portfolio 2026 · São Paulo</div>
+  </div>
+</section>
+<script>
+  // ===== i18n =====
+  const i18n = {
+    pt: {
+      nav_about: "Sobre", nav_work: "Cases", nav_prev: "Antes", nav_teaching: "Ensino", nav_leadership: "Liderança", nav_contact: "Contato",
+      hero_eyebrow: "Liderança de Design · Estratégia de Conteúdo",
+      hero_tagline: "Quinze anos construindo <em>disciplinas, times e experiências de produto</em> em escala — da mídia editorial a uma das maiores fintechs da América Latina.",
+      hero_scroll: "Role ↓",
+      about_label: "Quem sou eu",
+      about_lead: "Sou uma líder de design que veio do <em>conteúdo</em> — design gráfico, estratégia de conteúdo e, então, liderança de design de produto.",
+      about_body: "Hoje lidero 10 designers no Mercado Pago, uma das maiores fintechs da América Latina. Me importo com estratégia embasada em dados, fluxos de trabalho potencializados por IA e com o desenvolvimento das pessoas com quem trabalho. Construí disciplinas do zero e sou tão à vontade definindo estratégia de conteúdo quanto liderando uma organização de design.",
+      about_what: "O que eu faço",
+      tag_1: "Liderança de design", tag_2: "Estratégia de conteúdo", tag_3: "Construção de times",
+      tag_4: "Fluxos com IA", tag_5: "Desenvolvimento de pessoas", tag_6: "UX Writing",
+      tag_7: "Priorização por dados", tag_8: "Voz &amp; tom", tag_9: "Gestão de stakeholders",
+      tl_label: "Trajetória", tl_title: "Do design gráfico<br>à liderança de design.",
+      tl_r1: "Design Gráfico", tl_p1: "SENAC — Graduação",
+      tl_r2: "Estratégia de Conteúdo 360", tl_p2: "Mídia editorial &amp; publicidade",
+      tl_r3: "UX Writing", tl_r4: "UX Writer Sênior", tl_r5: "Content Design Lead", tl_p5: "RD — time de 4",
+      tl_r6: "UX Design Lead", tl_p6: "Mercado Pago — 10",
+      work_label: "Trabalhos selecionados", work_title: "Quatro cases.",
+      c1_org: "RaiaDrogasil · 2021–2024<br>UX Writer Sênior → Content Design Lead",
+      c1_title: "Construindo Content Design <strong>do zero.</strong>",
+      c1_sit_label: "A situação",
+      c1_sit_body: "Uma Content Designer (eu). Cinquenta Product Designers. Sem estratégia de conteúdo, sem diretrizes, sem vocabulário compartilhado. O conteúdo era uma reflexão tardia no fluxo de entrega.",
+      c1_out_label: "O resultado",
+      c1_out_body: "Uma disciplina de Content Design reconhecida, com seus próprios sistemas, processos e um time de quatro — com priorização ligada a métricas de negócio.",
+      c1_ph1_t: "Mapeamento &amp; Cultura", c1_ph1_d: "Benchmark de mercado, mapeamento de necessidades, construção do guia de escrita, checklist, workshops e uma Guilda de Conteúdo.",
+      c1_ph2_t: "Piloto", c1_ph2_d: "Defini o modelo de atuação — escopos, processos, lógica de alocação, bases de gestão de pessoas.",
+      c1_ph3_t: "Refinamento", c1_ph3_d: "Desenvolvi a profundidade do time, conectei squads, refinei processos a partir de atritos reais.",
+      c1_ph4_t: "Estratégia", c1_ph4_d: "Avancei para a priorização no nível trimestral, focando energia nas iniciativas de maior impacto.",
+      c1_s1: "iniciativas de upstream mapeadas", c1_s2: "com atuação de Conteúdo negociada", c1_s3: "oportunidades de alto impacto identificadas",
+      c1_note: "Um recorte de um trimestre anterior — além de um Content Design System, guia de escrita, checklist, ferramenta de desenvolvimento individual e mapa de habilidades, todos criados do zero.",
+      c2_org: "Mercado Pago · 2024–Presente<br>UX Design Lead, time de 10",
+      c2_title: "Liderando design <strong>na prática.</strong>",
+      c2_lead: "Liderando um time de 10 designers entre UX, UI e Conteúdo numa das maiores fintechs da América Latina — a partir de um papel transversal, que enxerga o produto como um todo e não uma única squad — por meio de projetos grandes e visíveis e de uma mudança na forma de trabalhar do time.",
+      c2_img_caption: "Home do Mercado Pago — depois do redesign",
+      c2_b1_l: "Redesign da Home", c2_b1_d: "Liderei o redesign completo da experiência da Home — uma das superfícies mais visíveis e estratégicas do produto.",
+      c2_b4_l: "Dark mode", c2_b4_d: "Instituí o dark mode em todo o produto, dos tokens de design até o rollout.",
+      c2_b5_l: "Aprovações automatizadas", c2_b5_d: "Criei fluxos automatizados de aprovação de pendências, substituindo o sign-off manual por um processo mais rápido e auditável.",
+      c2_b6_l: "Rituais de conteúdo", c2_b6_d: "Criei rituais recorrentes de conteúdo para o time — crítica, calibragem e troca de conhecimento incorporadas ao fluxo de trabalho.",
+      c2_b7_l: "Roadmap &amp; capacidade", c2_b7_d: "Reorganizei o planejamento de roadmap e a distribuição de tarefas do time, reduzindo a carga de forma inteligente e liberando um buffer relevante de capacidade dos designers para as extra miles que sempre aparecem nesse tipo de produto.",
+      c2_b3_l: "IA na prática", c2_b3_d: "Conduzi a adoção de IA nos processos e entregas do time — atuando hands-on com Claude, Cursor e outras ferramentas.",
+      c2_note: "Case completo em desenvolvimento — terei prazer em apresentá-lo ao vivo.",
+      c3_org: "Itaú · 2020–2021<br>UX Writer · Redesign de onboarding",
+      c3_title: "Tornando o consórcio <strong>compreensível.</strong>",
+      c3_ch_l: "O desafio", c3_ch_d: "Consórcio é um produto financeiro complexo no Brasil — fácil de entender errado. O onboarding estava cheio de jargão que não cabia em um primeiro contato.",
+      c3_ap_l: "A abordagem", c3_ap_d: "Ouvi ligações do atendimento. Fiz pesquisa semântica. Alinhei com marketing e vendas. Co-criei com a squad. Reescrevi o conteúdo para começar pelo benefício, não pela mecânica.",
+      c3_from: "De <span data-count=\"25\">0</span>%", c3_ctx: "de compreensão dos usuários em testes — mesmo produto, conteúdo redesenhado.",
+      teach_label: "Case 04 · Além do time", teach_title: "Ensinando o ofício.",
+      teach_t1: "designers treinados", teach_d1: "Pela oficina \"Figma para Writers\", conectando escrita e UI de produto para designers do mercado.",
+      teach_t2: "cursos em desenvolvimento", teach_d2: "Construindo novos cursos, incluindo \"Do briefing à tela — UI com IA para writers\", voltado a writers que precisam entregar telas de UI.",
+      teach_t3: "palestras realizadas", teach_d3: "Palestrante de longa data sobre UX writing, content ops, criatividade e liderança de design — e instrutora in-company para recolocação.",
+      lead_label: "Sobre liderança", lead_title: "Como eu lidero.",
+      p1_h: "Estratégia embasada em dados", p1_p: "Opinião é ponto de partida, não de chegada. Eu priorizo por impacto no negócio — mapeado, medido, negociado. O trabalho de que mais me orgulho é aquele que consigo defender com números.",
+      p2_h: "Pessoas fazem as disciplinas crescerem, não o contrário", p2_p: "Disciplinas escalam porque designers individuais crescem dentro delas. Eu invisto no desenvolvimento individual — construindo planos de carreira, mentorando rumo à autonomia e criando as ferramentas e o espaço para que as pessoas conduzam o próprio crescimento.",
+      p3_h: "Ferramentas são alavanca, inclusive IA", p3_p: "Trago IA para os fluxos do time quando ela remove atrito, não quando remove o ofício. O mesmo princípio vale para processos, sistemas e rituais: mantenha o que serve ao trabalho, pode o que não serve.",
+      contact_big: "Vamos<strong>conversar.</strong>",
+      footer: "Danielle Cruz · Portfólio 2026 · São Paulo",
+      prev_label: "Antes de tudo isso",
+      prev_title: "Quinze anos em <em>design, editorial e marcas.</em>",
+      prev_intro: "De 2005 a 2019 — cinco anos como designer de branding e editorial, depois uma década em estratégia de conteúdo e digital para mídia editorial e publicidade: revistas, festivais de música e redes sociais para marcas globais.",
+      prev_scroll: "Role",
+      prev_7_t: "Onde tudo começou: design e impressão.",
+      prev_7_d: "Antes da estratégia de conteúdo, cinco anos como designer de branding e editorial — construindo identidades e diagramando revistas, edição após edição.",
+      prev_4_t: "Outro Estilo",
+      prev_4_d: "Design editorial e produção para a revista alternativa de São Paulo — da capa ao fechamento, edição após edição.",
+      prev_6_t: "Nova e Cosmopolitan",
+      prev_6_d: "Design editorial na Editora Abril, em duas das maiores revistas femininas do Brasil.",
+      prev_1_t: "Lollapalooza Brasil e Chile",
+      prev_1_d: "Estratégia de conteúdo e cobertura ao vivo direto do fosso — transformando um festival caótico de quatro dias em uma narrativa diária para dezenas de milhares de seguidores, nos dois países.",
+      prev_2_t: "Philips Avent · Instagram",
+      prev_2_d: "Estratégia de conteúdo, redação e direção editorial para a presença da marca no Instagram brasileiro.",
+      prev_3_t: "History Channel · A&E Brasil",
+      prev_3_d: "Estratégia de conteúdo e microcopy em todo o ecossistema digital do canal — YouTube, redes sociais e editorial.",
+      prev_5_t: "SKY · cobertura do Rock in Rio",
+      prev_5_d: "Voz de marca e cobertura em tempo real para o Twitter da SKY Brasil durante o Rock in Rio — traduzindo momentos da TV em conteúdo social compartilhável.",
+      prev_also_label: "Também",
+      prev_also: "Trabalhei com marcas e agências como MTV Brasil, DM9DDB, Wunderman, Kérastase, Land Rover, China in Box, Natura e Optimum Nutrition.",
+      soon_note: "Sempre trazendo coisa nova por aqui. Fica de olho.",
+    },
+    es: {
+      nav_about: "Sobre mí", nav_work: "Casos", nav_prev: "Antes", nav_teaching: "Docencia", nav_leadership: "Liderazgo", nav_contact: "Contacto",
+      hero_eyebrow: "Liderazgo de Diseño · Estrategia de Contenido",
+      hero_tagline: "Quince años construyendo <em>disciplinas, equipos y experiencias de producto</em> a escala — desde medios editoriales hasta una de las fintechs más grandes de América Latina.",
+      hero_scroll: "Desplázate ↓",
+      about_label: "Quién soy",
+      about_lead: "Soy una líder de diseño que viene del <em>contenido</em> — diseño gráfico, estrategia de contenido y luego liderazgo de diseño de producto.",
+      about_body: "Hoy lidero a 10 diseñadores en Mercado Pago, una de las fintechs más grandes de América Latina. Me importa la estrategia basada en datos, los flujos de trabajo potenciados por IA y el desarrollo de las personas con las que trabajo. Construí disciplinas desde cero y me siento tan cómoda definiendo estrategia de contenido como liderando una organización de diseño.",
+      about_what: "Qué hago",
+      tag_1: "Liderazgo de diseño", tag_2: "Estrategia de contenido", tag_3: "Construcción de equipos",
+      tag_4: "Flujos con IA", tag_5: "Desarrollo de personas", tag_6: "UX Writing",
+      tag_7: "Priorización por datos", tag_8: "Voz &amp; tono", tag_9: "Gestión de stakeholders",
+      tl_label: "Trayectoria", tl_title: "Del diseño gráfico<br>al liderazgo de diseño.",
+      tl_r1: "Diseño Gráfico", tl_p1: "SENAC — Licenciatura",
+      tl_r2: "Estrategia de Contenido 360", tl_p2: "Medios editoriales y publicidad",
+      tl_r3: "UX Writing", tl_r4: "UX Writer Senior", tl_r5: "Content Design Lead", tl_p5: "RD — equipo de 4",
+      tl_r6: "UX Design Lead", tl_p6: "Mercado Pago — 10",
+      work_label: "Trabajos seleccionados", work_title: "Cuatro casos.",
+      c1_org: "RaiaDrogasil · 2021–2024<br>UX Writer Senior → Content Design Lead",
+      c1_title: "Construyendo Content Design <strong>desde cero.</strong>",
+      c1_sit_label: "La situación",
+      c1_sit_body: "Una Content Designer (yo). Cincuenta Product Designers. Sin estrategia de contenido, sin guías, sin vocabulario compartido. El contenido era una idea tardía en el flujo de entrega.",
+      c1_out_label: "El resultado",
+      c1_out_body: "Una disciplina de Content Design reconocida, con sus propios sistemas, procesos y un equipo de cuatro — con priorización ligada a métricas de negocio.",
+      c1_ph1_t: "Mapeo y Cultura", c1_ph1_d: "Benchmark de mercado, mapeo de necesidades, creación de la guía de escritura, checklist, talleres y un Gremio de Contenido.",
+      c1_ph2_t: "Piloto", c1_ph2_d: "Definí el modelo de actuación — alcances, procesos, lógica de asignación, bases de gestión de personas.",
+      c1_ph3_t: "Refinamiento", c1_ph3_d: "Desarrollé la profundidad del equipo, conecté squads, refiné procesos a partir de fricciones reales.",
+      c1_ph4_t: "Estrategia", c1_ph4_d: "Avancé hacia la priorización a nivel trimestral, enfocando la energía en las iniciativas de mayor impacto.",
+      c1_s1: "iniciativas de upstream mapeadas", c1_s2: "con participación de Contenido negociada", c1_s3: "oportunidades de alto impacto identificadas",
+      c1_note: "Una muestra de un trimestre anterior — además de un Content Design System, guía de escritura, checklist, herramienta de desarrollo individual y mapa de habilidades, todos creados desde cero.",
+      c2_org: "Mercado Pago · 2024–Presente<br>UX Design Lead, equipo de 10",
+      c2_title: "Liderando diseño <strong>en la práctica.</strong>",
+      c2_lead: "Liderando un equipo de 10 diseñadores entre UX, UI y Contenido en una de las fintechs más grandes de América Latina — desde un rol transversal, que abarca todo el producto y no una sola squad — a través de proyectos grandes y visibles y de un cambio en la forma de trabajar del equipo.",
+      c2_img_caption: "Home de Mercado Pago — después del rediseño",
+      c2_b1_l: "Rediseño de la Home", c2_b1_d: "Lideré el rediseño completo de la experiencia de la Home — una de las superficies más visibles y estratégicas del producto.",
+      c2_b4_l: "Dark mode", c2_b4_d: "Instauré el dark mode en todo el producto, desde los tokens de diseño hasta el rollout.",
+      c2_b5_l: "Aprobaciones automatizadas", c2_b5_d: "Creé flujos automatizados de aprobación de pendientes, reemplazando el sign-off manual por un proceso más rápido y auditable.",
+      c2_b6_l: "Rituales de contenido", c2_b6_d: "Creé rituales recurrentes de contenido para el equipo — crítica, calibración e intercambio de conocimiento incorporados al flujo de trabajo.",
+      c2_b7_l: "Roadmap y capacidad", c2_b7_d: "Reorganicé la planificación del roadmap y la asignación de tareas del equipo, reduciendo la carga de forma inteligente y liberando un buffer relevante de capacidad de los diseñadores para las extra miles que siempre aparecen en este tipo de producto.",
+      c2_b3_l: "IA en la práctica", c2_b3_d: "Impulsé la adopción de IA en los procesos y entregas del equipo — trabajando hands-on con Claude, Cursor y otras herramientas.",
+      c2_note: "Caso completo en desarrollo — con gusto te lo presento en vivo.",
+      c3_org: "Itaú · 2020–2021<br>UX Writer · Rediseño de onboarding",
+      c3_title: "Haciendo que el consorcio <strong>se entienda.</strong>",
+      c3_ch_l: "El desafío", c3_ch_d: "El consorcio es un producto financiero complejo en Brasil — fácil de malinterpretar. El onboarding estaba lleno de jerga que no correspondía a un primer contacto.",
+      c3_ap_l: "El enfoque", c3_ap_d: "Escuché llamadas de atención al cliente. Hice investigación semántica. Alineé con marketing y ventas. Co-diseñé con la squad. Reescribí el contenido para empezar por el beneficio, no por la mecánica.",
+      c3_from: "Del <span data-count=\"25\">0</span>%", c3_ctx: "de comprensión de los usuarios en pruebas — mismo producto, contenido rediseñado.",
+      teach_label: "Caso 04 · Más allá del equipo", teach_title: "Enseñando el oficio.",
+      teach_t1: "diseñadores formados", teach_d1: "A través del taller \"Figma para Writers\", conectando escritura y UI de producto para diseñadores del mercado.",
+      teach_t2: "cursos en desarrollo", teach_d2: "Creando nuevos cursos, incluyendo \"Del briefing a la pantalla — UI con IA para writers\", dirigido a writers que deben entregar pantallas de UI.",
+      teach_t3: "charlas impartidas", teach_d3: "Conferencista de larga trayectoria sobre UX writing, content ops, creatividad y liderazgo de diseño — e instructora in-company para recolocación.",
+      lead_label: "Sobre liderazgo", lead_title: "Cómo lidero.",
+      p1_h: "Estrategia basada en datos", p1_p: "La opinión es un punto de partida, no de llegada. Priorizo por impacto en el negocio — mapeado, medido, negociado. El trabajo del que más me enorgullezco es el que puedo defender con números.",
+      p2_h: "Las personas hacen crecer las disciplinas, no al revés", p2_p: "Las disciplinas escalan porque los diseñadores individuales crecen dentro de ellas. Invierto en el desarrollo individual — construyendo planes de carrera, mentoreando hacia la autonomía y creando las herramientas y el espacio para que las personas conduzcan su propio crecimiento.",
+      p3_h: "Las herramientas son palanca, incluida la IA", p3_p: "Llevo la IA a los flujos del equipo cuando elimina fricción, no cuando elimina el oficio. El mismo principio aplica a procesos, sistemas y rituales: conserva lo que sirve al trabajo, poda lo que no.",
+      contact_big: "Hablemos<strong>.</strong>",
+      footer: "Danielle Cruz · Portafolio 2026 · São Paulo",
+      prev_label: "Antes de todo esto",
+      prev_title: "Quince años en <em>diseño, editorial y marcas.</em>",
+      prev_intro: "De 2005 a 2019 — cinco años como diseñadora de branding y editorial, luego una década en estrategia de contenido y digital para medios editoriales y publicidad: revistas, festivales de música y redes sociales para marcas globales.",
+      prev_scroll: "Desplázate",
+      prev_7_t: "Donde todo empezó: diseño e impresión.",
+      prev_7_d: "Antes de la estrategia de contenido, cinco años como diseñadora de branding y editorial — construyendo identidades y diagramando revistas, edición tras edición.",
+      prev_4_t: "Outro Estilo",
+      prev_4_d: "Diseño editorial y producción para la revista alternativa de São Paulo — de la portada al cierre, edición tras edición.",
+      prev_6_t: "Nova y Cosmopolitan",
+      prev_6_d: "Diseño editorial en Editora Abril, en dos de las revistas femeninas más grandes de Brasil.",
+      prev_1_t: "Lollapalooza Brasil y Chile",
+      prev_1_d: "Estrategia de contenido y cobertura en vivo desde el foso — convirtiendo un festival caótico de cuatro días en una narrativa diaria para decenas de miles de seguidores, en ambos países.",
+      prev_2_t: "Philips Avent · Instagram",
+      prev_2_d: "Estrategia de contenido, redacción y dirección editorial para la presencia de la marca en Instagram en Brasil.",
+      prev_3_t: "History Channel · A&E Brasil",
+      prev_3_d: "Estrategia de contenido y microcopy en todo el ecosistema digital del canal — YouTube, redes sociales y editorial.",
+      prev_5_t: "SKY · cobertura de Rock in Rio",
+      prev_5_d: "Voz de marca y cobertura en tiempo real para el Twitter de SKY Brasil durante Rock in Rio — traduciendo momentos de TV en contenido social compartible.",
+      prev_also_label: "También",
+      prev_also: "Trabajé con marcas y agencias como MTV Brasil, DM9DDB, Wunderman, Kérastase, Land Rover, China in Box, Natura y Optimum Nutrition.",
+      soon_note: "Siempre sumando cosas nuevas por acá. Mantente al tanto.",
+    }
+  };
+  // Store original EN content
+  const enStore = {};
+  document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18n || el.dataset.i18nHtml;
+    enStore[key] = el.innerHTML;
+  });
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18n || el.dataset.i18nHtml;
+      if (lang === 'en') {
+        el.innerHTML = enStore[key];
+      } else if (i18n[lang] && i18n[lang][key] !== undefined) {
+        el.innerHTML = i18n[lang][key];
+      }
+    });
+    document.querySelectorAll('.lang-switch button').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    // Re-run count-ups for any stats currently in view (numbers were reset by innerHTML swap)
+    document.querySelectorAll('[data-arrow] [data-count]').forEach(el => {
+      // keep final value
+      el.textContent = el.dataset.count;
+    });
+  }
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.dataset.lang);
+      try { localStorage.setItem('lang', btn.dataset.lang); } catch (e) {}
+    });
+  });
+  (function initLang() {
+    let saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (saved && saved !== 'en' && i18n[saved]) setLang(saved);
+  })();
+  // Nav backdrop on scroll (mobile)
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.8) navEl.classList.add('scrolled');
+    else navEl.classList.remove('scrolled');
+  });
+  // Mobile menu toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  function closeMenu() {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
+    navLinks.classList.remove('open');
+    navEl.classList.remove('menu-open');
+  }
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu();
+    } else {
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Close menu');
+      navLinks.classList.add('open');
+      navEl.classList.add('menu-open');
+    }
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+  // Phone mockup — auto-rotating screens (reusable: any .phone-showcase with a .phone-screen + .phone-dots)
+  document.querySelectorAll('.phone-showcase').forEach(showcase => {
+    const slides = Array.from(showcase.querySelectorAll('.phone-slide'));
+    const dots = Array.from(showcase.querySelectorAll('.phone-dots button'));
+    if (!slides.length) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0;
+    let timer = null;
+    function show(idx) {
+      i = (idx + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle('active', n === i));
+      dots.forEach((d, n) => d.setAttribute('aria-current', n === i ? 'true' : 'false'));
+    }
+    function start() {
+      if (prefersReducedMotion || slides.length < 2) return;
+      stop();
+      timer = setInterval(() => show(i + 1), 3200);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    dots.forEach((d, n) => d.addEventListener('click', () => { show(n); start(); }));
+    showcase.addEventListener('mouseenter', stop);
+    showcase.addEventListener('mouseleave', start);
+    showcase.addEventListener('focusin', stop);
+    showcase.addEventListener('focusout', start);
+    show(0);
+    start();
+  });
+  // Reveal on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // Timeline dots
+  const tl = document.querySelector('.tl');
+  if (tl) {
+    const tlObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { tl.classList.add('in'); tlObs.unobserve(tl); } });
+    }, { threshold: 0.3 });
+    tlObs.observe(tl);
+  }
+  // Count-up animation
+  function animateCount(el) {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-count]').forEach(animateCount);
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-stats],[data-arrow],.teach-grid').forEach(el => countObserver.observe(el));
+
+</script>
+</body>
+</html>
